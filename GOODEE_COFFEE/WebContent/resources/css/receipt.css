@@ -1,0 +1,132 @@
+/*영수증조회*/
+.show-receipt-modal { 
+     opacity: 1; 
+     visibility: visible;
+     transform: scale(1.0); 
+     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+
+} 
+#receipt_frm { 
+     /*margin: 0 auto;*/ 
+     width: 802px;
+     margin-top: 20px; 
+} 
+
+#receipt_code{ 
+     width: 439px; 
+     height: 40px; 
+     background-color: #fff; 
+     border: 1px solid #dedede; 
+     padding: 10px; 
+     margin-top: 3px; 
+     font-size: 0.9em; 
+     color: #000;
+     font-weight: bold; 
+} 
+ 
+ 
+#receipt_frm #submit{ 
+     width: 150px; height: 55px; 
+     text-align: center; 
+     border: none; 
+     margin: 20px 50px 0px 70px; 
+     cursor: pointer;
+     background-color: #f1c40f;
+     color: #fff;
+     border-radius: 0.5em;
+     font-size: 17px;
+     font-weight: bold;
+} 
+#receipt_frm #submit:hover{ 
+     color: #000; 
+     background-color: #d8af0e; 
+     opacity: 0.9;
+     font-weight: bold; 
+} 
+#receipt_frm #cancel { 
+     width: 150px; height: 55px; 
+     text-align: center; 
+     border: none; 
+     margin-top: 20px; 
+     cursor: pointer;
+     background-color: #c1392b;
+     color: #fff;
+     border-radius: 0.5em;
+     font-size: 17px;
+     font-weight: bold;  
+} 
+#receipt_frm #cancel:hover{ 
+     color: #000; 
+     background-color: #9b2e22; 
+     opacity: 0.9;
+     font-weight: bold; 
+}
+
+.receipt-modal { 
+     position: fixed; 
+     left: 0; 
+     top: 0; 
+     width: 100%; 
+     height: 100%; 
+     background-color: rgba(0, 0, 0, 0.5); 
+     opacity: 0; 
+     visibility: hidden;
+     transform: scale(1.1); 
+     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+
+} 
+
+.receipt-modal-content { 
+     position: absolute; 
+     top: 50%; 
+     left: 50%; 
+     transform: translate(-50%, -50%); 
+     background-color: white; 
+     padding: 1rem 1.5rem; 
+     width: 850px; 
+     height: 260px; 
+     border-radius: 0.5rem; 
+     
+} 
+
+/*공통*/
+.title{ 
+     font-family: 'Oswald', sans-serif; 
+     font-size: 30px; 
+     color: #516f8f;
+} 
+.close-btn { 
+     float: right; 
+     width: 1.5rem; 
+     line-height: 1.5rem; 
+     text-align: center; 
+     cursor: pointer; 
+     border-radius: 0.25rem; 
+     background-color: lightgray; 
+} 
+.close-btn:hover { 
+     background-color: darkgray; 
+} 
+
+dl{
+	width:700px; height:80px;
+	margin: 10px auto;
+	border: 1px solid #000;
+}
+
+dt{
+	float: left;
+	line-height: 80px;
+	padding: 0px 50px 0px 50px;
+	font-size: 20px;
+	color: #fff;
+	background-color: #516f8f;
+}
+
+dd{
+	float: left;
+	margin: 17px 0px 0px 20px;
+}
+
+.btn_wrap{margin: 0 155px;} 
+
