@@ -46,6 +46,10 @@ public class PaymentController {
 		bakeryMenu = paymentService.bakeryMenu(map);
 		model.addAttribute("bakeryMenu", bakeryMenu);
 		
+		List<Map<String, Object>> category = new ArrayList<Map<String, Object>>();
+		category = paymentService.category(map);
+		model.addAttribute("category", category);
+		
 		return "payment";
 	}
 	

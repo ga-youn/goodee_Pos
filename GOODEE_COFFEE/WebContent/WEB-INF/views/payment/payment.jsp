@@ -5,30 +5,31 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <%@ include file="./payment_header.jsp" %>
 
-    <!-- main -->
+      <!-- main -->
     <div id="display_wrap">
         <div id="left">
             <div id="tab_kind">
                <div class="tab_wrap">
-                   <div class="tab-link current" data-tab="coffee_menu"><input type="button" value="Coffee"></div>
-                   <div class="tab-link" data-tab="beverage_menu"><input type="button" value="Beverage"></div>
-                   <div class="tab-link" data-tab="tea_menu"><input type="button" value="Tea"></div>
-                   <div class="tab-link" data-tab="ade_menu"><input type="button" value="Ade"></div>
-                   <div class="tab-link" data-tab="shake_menu"><input type="button" value="Shake"></div>
-                   <div class="tab-link" data-tab="bakery_menu"><input type="button" value="Bakery"></div>
-                    <div class="tab-link" data-tab="bakery_menu"><input type="button" value="빈슬롯"></div>
+                   <div class="tab-link current" data-tab="coffee_menu"><input type="button" value="${category[0].category_name}"></div>
+                   <div class="tab-link" data-tab="beverage_menu"><input type="button" value="${category[1].category_name}"></div>
+                   <div class="tab-link" data-tab="tea_menu"><input type="button" value="${category[2].category_name}"></div>
+                   <div class="tab-link" data-tab="ade_menu"><input type="button" value="${category[3].category_name}"></div>
+                   <div class="tab-link" data-tab="shake_menu"><input type="button" value="${category[4].category_name}"></div>
+                   <div class="tab-link" data-tab="bakery_menu"><input type="button" value="${category[5].category_name}"></div>
+                   <div class="tab-link" data-tab="test1_menu"><input type="button" value="${category[6].category_name}"></div>
+                   <div class="tab-link" data-tab="test2_menu"><input type="button" value="${category[7].category_name}"></div>
                </div>
             </div>
             <section id="coffee_menu" class="tab-content current">
                 <nav>
                     <ul id="listofproduct">
                     	<c:forEach items="${coffeeMenu}" var="coffeeMenu">
-	                        <li>
-	                            <button type="button" class="menu-item">
-	                                <span class="menu_name">${coffeeMenu.menu_name}</span>
-	                                <p class="menu_price">${coffeeMenu.price}</p>원
-	                            </button>
-	                        </li>
+                        <li>
+                            <button>
+                                <span class="menu_name">${coffeeMenu.menu_name}</span>
+                                <p class="menu_price">${coffeeMenu.price}원</p>
+                            </button>
+                        </li>
                         </c:forEach>
                     </ul>
                 </nav>
@@ -38,9 +39,9 @@
                     <ul id="listofproduct">
                     	<c:forEach items="${beverageMenu}" var="beverageMenu">
                         <li>
-                            <button type="button" class="menu-item">
+                            <button>
                                 <span class="menu_name">${beverageMenu.menu_name}</span>
-                                <p class="menu_price">${beverageMenu.price}</p>원
+                                <p class="menu_price">${beverageMenu.price}원</p>
                             </button>
                         </li>
                   		</c:forEach>
@@ -54,7 +55,7 @@
                         <li>
                             <button>
                                 <span class="menu_name">${teaMenu.menu_name}</span>
-                                <p class="menu_price">${teaMenu.price}</p>원
+                                <p class="menu_price">${teaMenu.price}원</p>
                             </button>
                         </li>
                         </c:forEach>
@@ -68,7 +69,7 @@
                         <li>
                             <button>
                                 <span class="menu_name">${adeMenu.menu_name}</span>
-                                <p class="menu_price">${adeMenu.price}</p>원
+                                <p class="menu_price">${adeMenu.price}원</p>
                             </button>
                         </li>
                         </c:forEach>
@@ -79,12 +80,12 @@
                 <nav>
                     <ul id="listofproduct">
                     	<c:forEach items="${shakeMenu}" var="shakeMenu">
-	                        <li>
-	                            <button>
-	                                <span class="menu_name">${shakeMenu.menu_name}</span>
-	                                <p class="menu_price">${shakeMenu.price}</p>원
-	                            </button>
-	                        </li>
+                        <li>
+                            <button>
+                                <span class="menu_name">${shakeMenu.menu_name}</span>
+                                <p class="menu_price">${shakeMenu.price}원</p>
+                            </button>
+                        </li>
   						</c:forEach>
                     </ul>
                 </nav>
@@ -96,7 +97,7 @@
                         <li>
                             <button>
                                 <span class="menu_name">${bakeryMenu.menu_name}</span>
-                                <p class="menu_price">${bakeryMenu.price}</p>원
+                                <p class="menu_price">${bakeryMenu.price}원</p>
                             </button>
                         </li>
        					</c:forEach>
@@ -110,8 +111,8 @@
                         <nav>
                             <ul>
                                 <li class="reset"><input type="button" id="deleteAllItemsBtn"value="초기화"></li>
-                                <li><input type="button" value="영수증 조회" class="receipt_btn"></li>
                                 <li><input type="button" value="판매내역" class="breakdown_btn"></li>
+                                <li><input type="button" value="카드결제" class="payment_btn"></li>
                             </ul>
                         </nav>
                     </div>
@@ -120,7 +121,7 @@
                             <ul>
                                 <li><input type="button" value="결제취소"></li>
                                 <li><input type="button" value="회원조회"></li>
-                                <li><input type="button" value="결제" class="payment_btn"></li>
+                                <li><input type="button" value="현금결제" class="payment_btn"></li>
                             </ul>
                         </nav>
                     </div>
@@ -184,12 +185,17 @@
  		      });
 
  		      if (flag == 0) {//같은이름이 없으면
- 		        $('#order_table > tbody:last').append('<tr><td>' + m_name + '</td><td>1</td><td>' + m_price + '</td><td>' + m_price + '</td><td class="intd"><input type="button" class="delete" value="삭제"></td></tr>');
+ 		        $('#order_table > tbody:last').append('<tr><td>' + m_name + '</td><td>1</td><td>' + m_price + '</td><td>' + m_price + '</td><td class="intd"><input type="button" onclick="deleteLine(this); sum();" class="delete" value="삭제"></td></tr>');
  		      }
+ 		      
+ 		      sum();
+ 		      
 
- 		      var sum = 0;
-			  //합계가격
- 		      $('#order_table tbody tr').each(function(i) {
+ 		});
+ 		//합계가격
+ 		function sum() {
+ 			var sum = 0;
+	    	$('#order_table tbody tr').each(function(i) {
  		        var tr = $(this);
  		        var td = tr.children();
  		        var text = td.eq(3).text();
@@ -198,22 +204,52 @@
  		      });
 
  		      $(".total_money .sum").text(sum);
- 		      
-	 		  //결제합계 구하는 코드
-	 		  var point = $(".point").text();
-	 		  $(".calc_money > p > span").text(sum - point);
+ 		      total(sum);
+	       }
+ 		  //결제합계 구하는 코드
+	      function total(sum){
+	    	  var point = $(".point").text();
+			  $(".calc_money > p > span").text(sum - point);
+	      }
 
+	      
 
- 		});
-		
- 		
 		//주문 테이블에 있는 모든 행을 삭제하는 코드
 	    $('#deleteAllItemsBtn').click(function() {
 	 	      $('#order_table> .added_area').empty();
 	 	     $(".total_money .sum").text(0);
 	 	      $(".calc_money > p > span").text(0);
 	    });
+	   
+
 	 });
     </script>
-    
+    <script>
+	    function deleteLine(obj) {
+	    	 var tr = $(obj).parent().parent();
+	 	     
+		        //라인 삭제
+		        tr.remove();
+		       
+	    }
+	    function sum() {
+ 			var sum = 0;
+	    	$('#order_table tbody tr').each(function(i) {
+ 		        var tr = $(this);
+ 		        var td = tr.children();
+ 		        var text = td.eq(3).text();
+
+ 		        sum += parseInt(text);
+ 		      });
+
+ 		      $(".total_money .sum").text(sum);
+ 		      total(sum);
+	       }
+ 		  //결제합계 구하는 코드
+	      function total(sum){
+	    	  var point = $(".point").text();
+			  $(".calc_money > p > span").text(sum - point);
+	      }
+    </script>
+ 
 <%@ include file="./payment_footer.jsp" %>

@@ -21,13 +21,17 @@
         
         <input type="text" id="userId" name="userId" placeholder="아이디를 입력해주세요">
         <input type="password" id="userPwd" name="userPwd" placeholder="패스워드를 입력해주세요">
+      
+        <!--  
         <input type="checkbox" id="userIdSave" name="userIdSave">
         <label for="userIdSave">아이디 저장하기</label>
         <ul id="plusInfo">
+             
             <li><a href="/gc/login/id_find">아이디찾기</a></li>
             <li><a href="/gc/login/pw_find">비밀번호찾기</a></li>
-            <li><a href="/gc/staff/register11">회원가입</a></li>
+             
         </ul>
+        -->
         <div id="clear"></div>
         <input type="submit" value="로그인" id="loginSubmit" name="loginSubmit">
     </form>

@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface IPaymentDAO {
+	
+	List<Map<String, Object>> category(Map<String, Object> map);
 
 	List<Map<String, Object>> coffeeMenu(Map<String, Object> map);
 	

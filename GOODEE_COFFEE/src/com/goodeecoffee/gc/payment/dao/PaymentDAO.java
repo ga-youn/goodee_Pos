@@ -48,4 +48,10 @@ public class PaymentDAO implements IPaymentDAO{
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("mapper.bakeryMenuList", map);
 	}
+
+	@Override
+	public List<Map<String, Object>> category(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("mapper.categoryList", map);
+	}
 }

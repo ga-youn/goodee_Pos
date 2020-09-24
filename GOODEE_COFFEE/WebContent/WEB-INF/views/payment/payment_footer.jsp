@@ -138,7 +138,5 @@
 <!-- //footer -->
 </body>
 <script src="${path}/resources/js/open.js"></script>
-<script src="${path}/resources/js/receipt.js"></script>
 <script src="${path}/resources/js/breakdown.js"></script>
-<script src="${path}/resources/js/payment.js"></script>
 </html>

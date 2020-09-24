@@ -52,4 +52,10 @@ public class PaymentService implements IPaymentService{
 		return paymentDAO.bakeryMenu(map);
 	}
 
+	@Override
+	public List<Map<String, Object>> category(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return paymentDAO.category(map);
+	}
+
 }

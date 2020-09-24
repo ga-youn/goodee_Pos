@@ -6,14 +6,13 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="윤희원">
+    <meta name="author" content="윤희원,박가연">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>결제화면 POS</title>
     <script src="https://kit.fontawesome.com/cccee664d4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="${path}/resources/css/common.css">
     <link rel="stylesheet" href="${path}/resources/css/payment.css">
     <link rel="stylesheet" href="${path}/resources/css/open.css">
-    <link rel="stylesheet" href="${path}/resources/css/receipt.css">
     <link rel="stylesheet" href="${path}/resources/css/breakdown.css">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>

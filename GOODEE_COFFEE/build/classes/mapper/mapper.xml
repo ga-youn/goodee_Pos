@@ -41,7 +41,7 @@
 		order by id ASC
 	</select>
 	<!-- //test -->
-	<!-- 결제화면 - 메뉴불러오기 -->
+	
 	<!-- coffeeMenu -->
 	<resultMap type="map" id="mapCoffeeMenuList">
 		<result column="category_no" property="category_no"/>
@@ -143,11 +143,22 @@
 		where category_no = '6'
 	</select>
 	<!-- //bakeryMenu -->
-	<!-- //결제화면 - 메뉴불러오기 -->
 	
+	<!-- 로그인 테스트 -->
+	 <select id="adminLoginCheck" resultType="String">
+	 	select a_name
+	 	from admin
+	 	where a_id = '${userId}' and a_pwd = '${userPwd}'
+    </select>
+    
+    <select id="staffLoginCheck" resultType="String">
+	 	select w_name
+	 	from worker
+	 	where w_no = '${userId}' and w_pwd = '${userPwd}'
+    </select>
+	<!-- //로그인 테스트 -->
 	
 	<!-- 관리자 - 메뉴관리 -->
-	
 	<resultMap type="map" id="categoryList">
 		<result column="category_no" property="category_no"/>
 		<result column="category_name" property="category_name"/>
@@ -197,5 +208,18 @@
 		</foreach>
 	</delete>
 	<!-- //메뉴관리 -->
-		
+	
+	<!-- 카테고리  -->
+	<resultMap type="map" id="mapCategoryList">
+		<result column="category_no" property="category_no"/>
+		<result column="category_name" property="category_name"/>
+	</resultMap>
+	
+	<select id="categoryList" parameterType="map" resultMap="mapCategoryList">
+		SELECT 
+			category_no, 
+			category_name 
+			FROM category
+	</select>
+	<!-- //카테고리  -->
 </mapper>
