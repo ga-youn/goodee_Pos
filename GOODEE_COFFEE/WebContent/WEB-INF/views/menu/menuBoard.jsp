@@ -30,6 +30,7 @@
 				<!-- <img src="#"> -->
 			</div>
 			<h1 id="title">메뉴관리</h1>
+			<button id="logout" value="로그아웃">로그아웃</button>
 			<p id="login_name">
 				<span>이름</span> 님
 			</p>

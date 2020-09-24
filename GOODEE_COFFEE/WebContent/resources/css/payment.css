@@ -6,8 +6,8 @@ main{padding-left: 0; padding-top: 60px;height:100%;}
 
 #display_wrap{
     position: absolute; 
-    left: 60px;
-    width: 90%; height: 100%;
+    left: 80px;
+    width: 85%; height: 100%;
 }
 
 #display_wrap #left{

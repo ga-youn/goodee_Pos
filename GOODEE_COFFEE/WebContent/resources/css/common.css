@@ -20,6 +20,11 @@ header{
 #logo_image{float: left;}
 #title{float: left;}
 #header_wrapper > p{float:right; display: inline-block;}
+#header_wrapper > button{
+	float:right; margin-left:10px;
+	background-color:rgb(201, 201, 201);color:black;border:none; outline:none;
+	border-radius:5px; padding:2px;
+}
 #header_wrapper #login_date{margin-right: 10px;}
 #header_wrapper{color: white;}
 
