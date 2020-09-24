@@ -122,8 +122,8 @@
                     <div class="bottom">
                         <nav>
                             <ul>
-                                <li><input type="button" value="결제취소"></li>
-                                <li><input type="button" value="회원조회"></li>
+                                <li><input type="button" value="결제취소" class="pay_delete_btn"></li>
+                                <li><input type="button" value=""></li>
                                 <li><input type="button" value="현금결제" class="payment_btn" id="cashBtn"></li>
                             </ul>
                         </nav>
@@ -155,16 +155,29 @@
 		     
 	                </table>
 	            </div>
-	            <div class="payment">
-	                <div class="total_money">
-	                    <p>총 합계 :<span class="sum">0</span>원</p>
-	                    <p>포인트사용 :<span class="point">0</span> 원</p>
-	                </div>
-	                <hr>
-	                <div class="calc_money">
-	                    <p>결제가격 :<input type="text" name="total_price" style="height:30px; width:80px;" value="0">원</p>
-	                </div>
+	            <div id="right_bottom">
+		            <div class="payment">
+		                <div class="total_money">
+		                    <p>총 합계 :<span class="sum">0</span>원</p>
+		                    <p>포인트사용 :<span class="point">0</span> 원</p>
+		                </div>
+		                <hr>
+		                <div class="calc_money">
+		                    <p>결제가격 :<input type="text" name="total_price" style="height:30px; width:80px;" value="0">원</p>
+		                </div>
+		            </div>
+		            <div class="member_search">
+		                <div class="total_money">
+		                    <p>총 합계 :<span class="sum">0</span>원</p>
+		                    <p>포인트사용 :<span class="point">0</span> 원</p>
+		                </div>
+		                <hr>
+		                <div class="calc_money">
+		                    <p>결제가격 :<input type="text" name="total_price" style="height:30px; width:80px;" value="0">원</p>
+		                </div>
+		            </div>
 	            </div>
+	            
 	        </div>
         </form>
         

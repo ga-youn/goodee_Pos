@@ -254,20 +254,18 @@
 			,card
 			,cash
 		FROM pay_order
+		WHERE order_state='Y' ORDER BY order_date DESC <!-- 결제상태가 y인것만 리스트 보여주기 -->
 	</select>
 	
 	<insert id="orderInsert">
 		INSERT INTO pay_order
 		VALUES(pay_order_seq.NEXTVAL,1000,SYSDATE,#{total_price},'Y',#{card},#{cash})
 	</insert>
-	<!--  
-	<delete id="menuDelete" parameterType="list">
-			DELETE menu
-			WHERE
-		<foreach collection="list" item="menu_id" separator="or"> 
-			menu_id=#{menu_id}
-		</foreach>
-	</delete>
-	-->
+	<update id="orderUpdate"> <!-- 결제상태 : 취소로 변경 -->
+			update pay_order set
+		    	order_state = 'N'
+		  	where order_id = #{order_id}
+	</update>
+	
 	<!-- //payment : 결제 -->
 </mapper>

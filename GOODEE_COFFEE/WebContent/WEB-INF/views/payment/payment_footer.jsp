@@ -107,36 +107,76 @@
 			</form>
 	    </div> 
 	</div>
-	<!-- 결제 
-	<div class="pay-modal"> 
-	    <div class="pay-modal-content"> 
-	        <span class="close-btn">&times;</span> 
-	        <h1 class="title">결제</h1> 
-	        <form id="pay_frm" action="#" method="POST"> 
-	          <dl>
-	          	<dt>카드</dt>
-	          	<dd>
-	          		<input id="card_pay" type="text" placeholder="입력">
-	          	</dd>
-	          </dl>
-	          <dl>
-	          	<dt>현금</dt>
-	          	<dd>
-	          		<input id="cash_pay" type="text" placeholder="입력">
-	          	</dd>
-	          </dl>
-	          <div class="btn_wrap">
-	          	<input type="submit" class="submit" value="결제">
-	          	<input type="button" class="cancel" value="취소">  
-	          </div>
+	<!-- 결제 취소  -->
+	<div class="pay-delete-modal"> 
+	    <div class="pay-delete-modal-content"> 
+	        <span class="pay-delete-modal-close-btn">&times;</span> 
+	        <h1 class="title">결제 취소</h1> 
+	        <form id="pay_delete_frm" action="#" method="POST"> 
+	          <section id="search_list">
+	            	<table>
+		                <colgroup>
+		                    <col width="10%"><!--주문아이디-->
+		                    <col width="10%"><!--일자-->
+		                    <col width="10%"><!--시간-->
+		                    <col width="20%"><!-- 상세내용 -->
+		                    <col width="20%"><!--주문합계-->
+		                    <col width="5%"><!--카드-->
+		                    <col width="5%"><!--현금-->
+		                    <col width="10%"><!-- 주문상태 -->
+		                    <col width="10%"><!-- 삭제버튼 -->
+		                </colgroup>
+		                <thead>
+		                    <tr>
+		                        <th>주문아이디</th>
+		                        <th>일자</th>
+		                        <th>시간</th>
+		                        <th>상세내용</th>
+		                        <th>주문합계</th>
+		                        <th>카드</th>
+		                        <th>현금</th>
+		                        <th>주문상태</th>
+		                        <th></th>
+		                    </tr>
+		                </thead>
+		                <tbody>
+		               	 	<c:forEach items="${paymentList}" var="paymentList">
+		                    <tr>
+		                        <td>${paymentList.order_id}</td>
+		                        <td><fmt:formatDate type="date" value="${paymentList.order_date}" pattern="yyyy-MM-dd"/></td>
+		                        <td><fmt:formatDate type="time" value="${paymentList.order_date}" pattern="HH:mm:ss"/></td>
+		                        <td>-</td>
+		                        <td>${paymentList.total_price}</td>
+		                        <td>${paymentList.card}</td>
+		                        <td>${paymentList.cash}</td>
+		                        <td>${paymentList.order_state}</td>
+		                        <td><input type="button" value="삭제" onclick="delete_btn(${paymentList.order_id});"/></td>
+		                    </tr>
+		                    </c:forEach>
+		                </tbody>
+		            </table>
+	        		
+
+        		</section>
 	        </form> 
 	    </div> 
 	</div>
-	-->
+<script>
+	function delete_btn(order_id) { 
+		var result = confirm("정말 결제 취소 하겠습니까?");
+		
+		if(result == true){
+			window.location.href = "${pageContext.request.contextPath}/payment/orderUpdate?order_id="+order_id;
+		    alert("결제 취소 완료");
+		}else
+			event.preventDefault();
+	 }
+</script>
 <!-- // -->
 </footer>
 <!-- //footer -->
 </body>
 <script src="${path}/resources/js/open.js"></script>
 <script src="${path}/resources/js/breakdown.js"></script>
+<script src="${path}/resources/js/pay_delete.js"></script>
 </html>

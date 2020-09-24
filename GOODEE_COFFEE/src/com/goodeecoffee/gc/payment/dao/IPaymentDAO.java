@@ -18,9 +18,7 @@ public interface IPaymentDAO {
 	
 	/*결제*/
 	List<Map<String, Object>> paymentList(Map<String, Object> map);
-
-	void insertOrder(OrderDTO order);
-
-	//void deleteOrder(List<String> paymentList);
+	void insertOrder(OrderDTO order); //결제하기
+	void updateOrder(int order_id);	  //결제취소
 
 }

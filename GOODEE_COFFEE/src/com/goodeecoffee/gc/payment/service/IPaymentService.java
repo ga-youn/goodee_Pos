@@ -25,4 +25,5 @@ public interface IPaymentService {
 	/*결제*/
 	List<Map<String, Object>> paymentList(Map<String, Object> map);
 	void insertOrder(OrderDTO order);
+	void updateOrder(int order_id);
 }

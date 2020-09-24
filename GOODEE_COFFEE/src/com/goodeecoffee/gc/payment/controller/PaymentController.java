@@ -55,6 +55,11 @@ public class PaymentController {
 		category = paymentService.category(map);
 		model.addAttribute("category", category);
 		
+		List<Map<String, Object>> paymentList = new ArrayList<Map<String, Object>>();
+		paymentList = paymentService.paymentList(map);
+		model.addAttribute("paymentList", paymentList);
+		
+		
 		return "payment";
 	}
 	/*결제 insert*/
@@ -93,6 +98,23 @@ public class PaymentController {
 			order.setTotal_price(total_price);
 
 			paymentService.insertOrder(order);
+
+			return "redirect:/payment";
+	}
+	/*결제 취소*/
+	@RequestMapping(value="/orderUpdate", method=RequestMethod.GET)
+	 public String orderUpdate(Map<String, Object> map, HttpServletRequest request) { //요청을 utf-8로 설정해주는 것, filter로 바꿔야함.
+		 	System.out.println("orderUpdate() 실행"); 
+		 	try {
+				request.setCharacterEncoding("UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			int order_id = Integer.parseInt(request.getParameter("order_id"));
+
+			paymentService.updateOrder(order_id);
+
 
 			return "redirect:/payment";
 	}

@@ -136,17 +136,27 @@ section button{
 
 .selected_menu table tr td:first-child{text-align: left;}
 
+#right #right_botton{
+	width:650px;
+}
 #right .payment{
-    width: 650px; height: 230px;
+    width: 50%; height: 230px;
     margin-top: 10px;
     background-color: #fff;
     border: none;
     border-radius: 0.2em;
     font-size: 25px;
 }
-
 #right .payment p{margin: 5px 0;}
 
+#right .member_search{
+    width: 50%; height: 230px;
+    margin-top: 10px;
+    background-color: #fff;
+    border: none;
+    border-radius: 0.2em;
+    font-size: 25px;
+}
 .payment .total_money{padding:7px 0 0 20px;}
 
 .payment .calc_money{padding:7px 0 0 20px;}

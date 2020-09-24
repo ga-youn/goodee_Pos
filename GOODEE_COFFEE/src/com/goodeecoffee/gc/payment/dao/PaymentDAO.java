@@ -54,4 +54,8 @@ public class PaymentDAO implements IPaymentDAO{
 	public void insertOrder(OrderDTO order) {
 		sqlSession.insert("mapper.orderInsert", order);
 	}
+	@Override
+	public void updateOrder(int order_id) {
+		sqlSession.update("mapper.orderUpdate", order_id);
+	}
 }

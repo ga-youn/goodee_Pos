@@ -50,12 +50,15 @@ public class PaymentService implements IPaymentService{
 	/*결제*/
 	@Override
 	public List<Map<String, Object>> paymentList(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return paymentDAO.paymentList(map);
 	}
 	@Override
-	public void insertOrder(OrderDTO order) {
-		// TODO Auto-generated method stub
+	public void insertOrder(OrderDTO order) {//카드 or 현금 결제
 		paymentDAO.insertOrder(order);
 	}
+	@Override
+	public void updateOrder(int order_id) {
+		paymentDAO.updateOrder(order_id);
+	}
+
 }
