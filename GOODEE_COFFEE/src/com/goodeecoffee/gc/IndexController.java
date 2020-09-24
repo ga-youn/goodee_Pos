@@ -20,7 +20,7 @@ import com.goodeecoffee.gc.staff.service.StaffService;
  */
 @Controller
 public class IndexController {
-	
+	//로그인 처리
 	@RequestMapping(value = "/")
 	public String login(Locale locale, Model model) {
 		

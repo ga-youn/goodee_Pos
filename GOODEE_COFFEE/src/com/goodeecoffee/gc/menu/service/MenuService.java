@@ -18,7 +18,6 @@ public class MenuService implements IMenuService{
 	
 	@Override
 	public List<Map<String, Object>> categoryLists(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return menuDAO.categoryLists(map);
 	}
 

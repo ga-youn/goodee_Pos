@@ -5,8 +5,10 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <%@ include file="./payment_header.jsp" %>
 
-      <!-- main -->
+    <!-- main -->
+      
     <div id="display_wrap">
+    	
         <div id="left">
             <div id="tab_kind">
                <div class="tab_wrap">
@@ -105,6 +107,7 @@
                 </nav>
             </section>
             <br>
+	        
             <div id="manage_btn">
                 <div class="main_btn">
                     <div class="top">
@@ -112,7 +115,7 @@
                             <ul>
                                 <li class="reset"><input type="button" id="deleteAllItemsBtn"value="초기화"></li>
                                 <li><input type="button" value="판매내역" class="breakdown_btn"></li>
-                                <li><input type="button" value="카드결제" class="payment_btn"></li>
+                                <li><input type="button" value="카드결제" class="payment_btn" id="cardBtn"></li>
                             </ul>
                         </nav>
                     </div>
@@ -121,7 +124,7 @@
                             <ul>
                                 <li><input type="button" value="결제취소"></li>
                                 <li><input type="button" value="회원조회"></li>
-                                <li><input type="button" value="현금결제" class="payment_btn"></li>
+                                <li><input type="button" value="현금결제" class="payment_btn" id="cashBtn"></li>
                             </ul>
                         </nav>
                     </div>
@@ -132,36 +135,39 @@
                 </div>
             </div>
         </div>
-        <div id="right">
-            <div class="selected_menu">
-                <table id="order_table">
-                	<thead>
-	                    <tr>
-	                        <th>상품이름</th>
-	                        <th>수량</th>
-	                        <th>정가</th>
-	                        <th>합계</th>
-	                        <th>삭제</th>
-	                    </tr>
-                    </thead>
-                 
-                    <tbody class="added_area">
-	                    <!-- 데이터 추가될 곳 -->
-                    </tbody>
-	     
-                </table>
-            </div>
-            <div class="payment">
-                <div class="total_money">
-                    <p>총 합계 :<span class="sum">0</span>원</p>
-                    <p>포인트사용 :<span class="point">0</span> 원</p>
-                </div>
-                <hr>
-                <div class="calc_money">
-                    <p>결제가격 :<span>0</span>원</p>
-                </div>
-            </div>
-        </div>
+       	<form name="paymentFrm" method="GET">
+	        <div id="right">
+	            <div class="selected_menu">
+	                <table id="order_table">
+	                	<thead>
+		                    <tr>
+		                        <th>상품이름</th>
+		                        <th>수량</th>
+		                        <th>정가</th>
+		                        <th>합계</th>
+		                        <th>삭제</th>
+		                    </tr>
+	                    </thead>
+	                 
+	                    <tbody class="added_area">
+		                    <!-- 데이터 추가될 곳 -->
+	                    </tbody>
+		     
+	                </table>
+	            </div>
+	            <div class="payment">
+	                <div class="total_money">
+	                    <p>총 합계 :<span class="sum">0</span>원</p>
+	                    <p>포인트사용 :<span class="point">0</span> 원</p>
+	                </div>
+	                <hr>
+	                <div class="calc_money">
+	                    <p>결제가격 :<input type="text" name="total_price" style="height:30px; width:80px;" value="0">원</p>
+	                </div>
+	            </div>
+	        </div>
+        </form>
+        
     </div>
     <!-- //main -->
     <script>
@@ -210,7 +216,7 @@
  		  //결제합계 구하는 코드
 	      function total(sum){
 	    	  var point = $(".point").text();
-			  $(".calc_money > p > span").text(sum - point);
+			  $(".calc_money > p > input").val(sum - point);
 	      }
 
 	      
@@ -219,7 +225,7 @@
 	    $('#deleteAllItemsBtn').click(function() {
 	 	      $('#order_table> .added_area').empty();
 	 	     $(".total_money .sum").text(0);
-	 	      $(".calc_money > p > span").text(0);
+	 	      $(".calc_money > p > input").val(0);
 	    });
 	   
 
@@ -249,8 +255,35 @@
  		  //결제합계 구하는 코드
 	      function total(sum){
 	    	  var point = $(".point").text();
-			  $(".calc_money > p > span").text(sum - point);
+	    	  $(".calc_money > p > input").val(sum - point);
 	      }
+    </script>
+    <script>
+	    $('#cardBtn').click(function() {
+	    	var total_price = $(".calc_money > p > input").val();
+	    	
+	    	if(total_price == 0){
+	    		alert("구매목록이 없습니다.");
+	    	}else{
+	    		window.location.href = "${pageContext.request.contextPath}/payment/orderInsert?payment=card&total_price="+total_price;
+	    		alert("결제완료");
+	    	}
+	    	
+	    	//document.paymentFrm.action ="${pageContext.request.contextPath}/payment/orderInsert&method=card";
+			//document.paymentFrm.submit();
+			});
+		$('#cashBtn').click(function() {
+			
+			var total_price = $(".calc_money > p > input").val();
+	    	
+	    	if(total_price == 0){
+	    		alert("구매목록이 없습니다.");
+	    	}else{
+	    		window.location.href = "${pageContext.request.contextPath}/payment/orderInsert?payment=cash&total_price="+total_price;
+	    		alert("결제완료");
+	    	}
+		});
+
     </script>
  
 <%@ include file="./payment_footer.jsp" %>

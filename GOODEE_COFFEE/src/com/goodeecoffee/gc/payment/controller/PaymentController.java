@@ -1,16 +1,20 @@
 package com.goodeecoffee.gc.payment.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.goodeecoffee.gc.menu.dto.MenuDTO;
+import com.goodeecoffee.gc.payment.dto.OrderDTO;
 import com.goodeecoffee.gc.payment.service.IPaymentService;
 
 @Controller
@@ -19,6 +23,7 @@ public class PaymentController {
 	@Resource(name="paymentService")
 	private IPaymentService paymentService;
 
+	/*메뉴 불러오기*/
 	@RequestMapping(value="/payment", method=RequestMethod.GET)
 	public String payment(Map<String, Object> map, Model model) {
 		
@@ -52,5 +57,43 @@ public class PaymentController {
 		
 		return "payment";
 	}
-	
+	/*결제 insert*/
+	@RequestMapping(value="/orderInsert", method=RequestMethod.GET)
+	 public String orderInsert(HttpServletRequest request) { //요청을 utf-8로 설정해주는 것, filter로 바꿔야함.
+		 	System.out.println("orderInsert() 실행"); 
+		 	try {
+				request.setCharacterEncoding("UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 	OrderDTO order = new OrderDTO();
+		 	int s_no = 1000;//직원아이디 ->로그인값에서 가져오기
+			int total_price = Integer.parseInt(request.getParameter("total_price"));
+			String payment = request.getParameter("payment");
+			char card;
+			char cash;
+			
+			if(payment.equals("card")) {//카드결제
+				card = 'Y';
+				cash = 'N';
+				order.setCard(card);
+				order.setCash(cash);
+				System.out.println(card);
+			}else if(payment.equals("cash")) {//현금결제
+				card = 'N';
+				cash = 'Y';
+				order.setCard(card);
+				order.setCash(cash);
+				System.out.println(cash);
+			}
+			
+			order.setS_no(s_no);
+			
+			order.setTotal_price(total_price);
+
+			paymentService.insertOrder(order);
+
+			return "redirect:/payment";
+	}
 }
