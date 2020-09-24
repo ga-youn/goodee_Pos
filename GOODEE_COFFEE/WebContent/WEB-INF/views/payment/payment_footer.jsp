@@ -4,7 +4,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!-- footer -->
 <footer>
-	<!-- 팝업 될 레이어 --> 
+	<!-- 팝업 될 레이어
 	<div class="receipt-modal"> 
 	    <div class="receipt-modal-content"> 
 	        <span class="close-btn">&times;</span> 
@@ -22,7 +22,7 @@
 	          </div>
 	        </form> 
 	    </div> 
-	</div>
+	</div> --> 
 	
 	<div class="breakdown-modal"> 
 	    <div class="breakdown-modal-content">

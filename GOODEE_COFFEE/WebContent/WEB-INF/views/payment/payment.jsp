@@ -126,6 +126,7 @@
                         </nav>
                     </div>
                 </div>
+                <!-- 버튼사용안함 -->
                 <div class="aside_btn">
                     <input type="button" value="보류">
                 </div>

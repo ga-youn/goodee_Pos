@@ -6,8 +6,6 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-
-import com.goodeecoffee.gc.member.dao.IMemberDAO;
 import com.goodeecoffee.gc.payment.dao.IPaymentDAO;
 
 @Service("paymentService")

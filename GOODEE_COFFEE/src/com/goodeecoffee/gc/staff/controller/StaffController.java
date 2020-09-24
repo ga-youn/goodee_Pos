@@ -1,28 +1,40 @@
 package com.goodeecoffee.gc.staff.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.goodeecoffee.gc.staff.service.IStaffService;
 
 @Controller
 public class StaffController {
 	
-	@RequestMapping(value="register11", method = RequestMethod.GET)
-	public String register11() {
+	@Resource(name="memberService")
+	private IStaffService memberService;
+
+	@RequestMapping(value="alterInto", method=RequestMethod.GET)
+	public String alterInto() {
 		
-		return "register11";
+		return "alterInto";
 	}
 	
-	@RequestMapping(value="alterInto11", method = RequestMethod.GET)
-	public String alterInto11() {
+	@RequestMapping(value="register", method=RequestMethod.GET)
+	public String register() {
 		
-		return "alterInto11";
+		return "register";
 	}
 	
-	@RequestMapping(value="withdraw11", method = RequestMethod.GET)
-	public String withdraw11() {
+	@RequestMapping(value="withdraw", method=RequestMethod.GET)
+	public String withdraw() {
 		
-		return "withdraw11";
+		return "withdraw";
 	}
 	
 }
