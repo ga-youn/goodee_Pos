@@ -159,7 +159,7 @@
     <select id="staffLoginCheck" resultType="String">
 	 	select w_name
 	 	from worker
-	 	where w_no = '${userId}' and w_pwd = '${userPwd}'
+	 	where w_id = '${w_id}' and w_pwd = '${w_pwd}'
     </select>
 	<!-- //로그인 테스트 -->
 	<!-- //login : 로그인 -->
@@ -268,4 +268,138 @@
 	</update>
 	
 	<!-- //payment : 결제 -->
+	
+	
+	<!-- 직원관리 -->
+	<insert id="staffInsert">
+		INSERT INTO worker
+		VALUES(worker_seq.NEXTVAL,#{w_name},default,#{w_phone},default,default)
+	</insert>
+	<!-- //직원관리 -->
+	
+	<!-- 직원 삭제 -->
+	<update id="staffWithdraw" >
+			UPDATE
+				worker
+			SET
+				use='N'
+			WHERE
+				w_id=#{w_id}
+	</update>
+	<!-- //직원 삭제 -->
+	
+	<!-- staffList -->
+	<resultMap type="map" id="mapStaffList">
+		<result column="w_id" property="w_id"/>
+		<result column="w_name" property="w_name"/>
+		<result column="w_phone" property="w_phone"/>
+		<result column="indate" property="indate"/>
+		<result column="use" property="use"/>
+	</resultMap>
+	
+	<select id="staffList" parameterType="map" resultMap="mapStaffList">
+		select 
+			w_id
+			,w_name
+			,w_phone
+			,indate
+			,use
+		from worker
+	</select>
+	<!-- //staffList -->
+	
+	<!-- staffSelect -->
+	<resultMap type="com.goodeecoffee.gc.staff.dto.StaffDTO" id="mapStaffSelect">
+		<result column="w_id" property="w_id"/>
+		<result column="w_name" property="w_name"/>
+		<result column="w_phone" property="w_phone"/>
+	</resultMap>
+	
+	<select id="staffSelect" parameterType="_int" resultMap="mapStaffSelect">
+		select 
+			w_id
+			,w_name
+			,w_phone
+		from worker
+		where w_id=#{w_id}
+	</select>
+	<!-- //staffSelect -->
+	
+	<!-- staffUpdate -->
+	<update id="staffUpdate">
+		UPDATE worker
+		SET w_name=#{w_name}, w_phone=#{w_phone}
+		WHERE w_id=#{w_id}		
+	</update>
+	<!-- //staffUpdate -->
+	
+	
+	<!-- 회원관리 -->
+	
+	<!-- 회원등록 -->
+	<insert id="memberInsert">
+		INSERT INTO member
+		VALUES(member_seq.NEXTVAL,#{m_name},default,#{m_phone},default,default,default)
+	</insert>
+	
+	
+	<!-- 회원 삭제 -->
+	<update id="memberWithdraw" >
+			UPDATE
+				member
+			SET
+				use='Y'
+			WHERE
+				m_id=#{m_id}
+	</update>
+	
+	
+	<!-- 회원리스트 -->
+	<resultMap type="map" id="mapMemberList">
+		<result column="m_id" property="m_id"/>
+		<result column="m_name" property="m_name"/>
+		<result column="m_phone" property="m_phone"/>
+		<result column="point" property="point"/>
+		<result column="total" property="total"/>
+		<result column="indate" property="indate"/>
+		<result column="use" property="use"/>
+	</resultMap>
+	
+	<select id="memberList" parameterType="map" resultMap="mapMemberList">
+		select 
+			m_id
+			,m_name
+			,m_phone
+			,indate
+			,use
+		from member
+	</select>
+	
+	
+	<!-- 회원선택 -->
+	<resultMap type="com.goodeecoffee.gc.member.dto.MemberDTO" id="mapMemberSelect">
+		<result column="m_id" property="m_id"/>
+		<result column="m_name" property="m_name"/>
+		<result column="m_phone" property="m_phone"/>
+		<result column="total" property="total"/>
+		<result column="point" property="potin"/>
+	</resultMap>
+	
+	<select id="memberSelect" parameterType="_int" resultMap="mapMemberSelect">
+		select 
+			n_id
+			,n_name
+			,n_phone
+			,total
+			,point
+		from member
+		where m_id=#{m_id}
+	</select>
+	
+	<!-- 회원정보수정 -->
+	<update id="memberUpdate">
+		UPDATE member
+		SET m_name=#{m_name}, m_phone=#{m_phone}
+		WHERE m_id=#{m_id}		
+	</update>
 </mapper>

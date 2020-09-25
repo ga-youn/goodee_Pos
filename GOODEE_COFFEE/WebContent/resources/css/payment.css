@@ -136,31 +136,32 @@ section button{
 
 .selected_menu table tr td:first-child{text-align: left;}
 
-#right #right_botton{
-	width:650px;
+#right #right_bottom{
+	width:650px; height: 230px;margin-top: 10px;
 }
-#right .payment{
-    width: 50%; height: 230px;
-    margin-top: 10px;
+#right_bottom .payment{
+    width: 60%; height: 100%;
     background-color: #fff;
     border: none;
     border-radius: 0.2em;
     font-size: 25px;
+    float:left;
 }
-#right .payment p{margin: 5px 0;}
+#right_bottom .payment p,#right_bottom .member_search input{margin: 5px 0;}
 
-#right .member_search{
-    width: 50%; height: 230px;
-    margin-top: 10px;
+#right_bottom .member_search{
+    width: 38%; height: 100%;
     background-color: #fff;
     border: none;
     border-radius: 0.2em;
     font-size: 25px;
+    float:right;
+    margin-left:10px;
 }
-.payment .total_money{padding:7px 0 0 20px;}
 
-.payment .calc_money{padding:7px 0 0 20px;}
+.member_search .search_box, .member_search .point_area,.payment .total_money,.payment .calc_money{padding:7px 0 0 20px;}
 
 .calc_money p:first-child{color: #c1392b;}
 
 .calc_money p:last-child{color: #c1392b; font-weight: bold;}
+.point_area p > span{color: #c1392b;}

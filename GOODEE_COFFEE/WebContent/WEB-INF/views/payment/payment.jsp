@@ -167,13 +167,13 @@
 		                </div>
 		            </div>
 		            <div class="member_search">
-		                <div class="total_money">
-		                    <p>총 합계 :<span class="sum">0</span>원</p>
-		                    <p>포인트사용 :<span class="point">0</span> 원</p>
+		                <div class="search_box">
+		                    <span>회원조회</span><input type="text"/><input type="button" value="조회"/>
 		                </div>
 		                <hr>
-		                <div class="calc_money">
-		                    <p>결제가격 :<input type="text" name="total_price" style="height:30px; width:80px;" value="0">원</p>
+		                <div class="point_area">
+		                	<p>전체포인트 :<span>0</span>원</p>
+		                    <p>사용할포인트 :</p><input type="text"/><input type="button" value="사용"/>
 		                </div>
 		            </div>
 	            </div>

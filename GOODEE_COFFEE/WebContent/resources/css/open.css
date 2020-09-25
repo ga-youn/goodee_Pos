@@ -1,55 +1,5 @@
 body {background-color: #2D3E50; height:750px;}
 
-/*header{
-    width: 100%; height: 100px;
-    background-color: #2D3E50;
-    position: relative;
-    border-bottom: 1px solid #fff;
-}
-
-header div{
-    width: fit-content; height: 100%;
-    float: left;
-}
-
-header .logo h1{
-    font-size: 45px;
-    color: #fff;
-    line-height: 100px;
-    margin-left: 50px;
-}
-
-header .date{
-    font-size: 24px;
-    line-height: 100px;
-    margin-left: 100px;
-    font-weight: bold;
-    color: #fff;
-}
-header .server{
-    font-size: 24px;
-    line-height: 100px;
-    margin-left: 200px;
-    font-weight: bold;
-    color: #fff;
-}
-
-aside {
-    width: 100px; height: 650px;
-    position: absolute; left: 0; top: 100px;
-}
-
-aside nav{
-    width: 100px;
-    height: 100%;
-    background-color:#363b41;
-}
-aside nav i{font-size: 30px; color: white; margin-top: 2px;}
-aside nav ul{text-align: center;}
-aside nav ul li{width: 100%; height: 60px; padding: 5px 0; border-top:0.2px solid silver ;}
-aside nav li.closing_settlement{background-color:#c1392b; color: white; line-height: 50px; font-size: 14px;}
-aside nav p{color: white; margin-top: 5px; font-size: 14px;}
-*/
 #display_wrap{
     position: absolute;
     /*left: 100px;*/
@@ -194,14 +144,6 @@ section button{
 
 .selected_menu table tr td:first-child{text-align: left;}
 
-#right .payment{
-    width: 650px; height: 230px;
-    margin-top: 10px;
-    background-color: #fff;
-    border: none;
-    border-radius: 0.2em;
-    font-size: 25px;
-}
 
 #right .payment p{margin: 5px 0;}
 

@@ -3,11 +3,22 @@ package com.goodeecoffee.gc.member.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.goodeecoffee.gc.member.dto.MemberDTO;
+
 public interface IMemberDAO {
+	
+	void memberInsert(MemberDTO member);
 
-	List<Map<String, Object>> member(Map<String, Object> map);
 
-	List<Map<String, Object>> memberDESC(Map<String, Object> map);
+	void memberWithdraw(MemberDTO member);
 
+
+	List<Map<String, Object>>memberList(Map<String, Object> map);
+
+
+	MemberDTO memberSelect(int m_id);
+
+
+	void memberUpdate(MemberDTO member);
 
 }

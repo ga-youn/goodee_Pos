@@ -25,7 +25,7 @@
    <header>
         <div id="header_wrapper">
             <div id="logo_image"><!-- <img src="#"> --></div>
-            <h1 id="title">매출조회</h1>
+            <h1 id="title">회원정보수정</h1>
             <p id="login_name"><span>이름</span> 님</p>
             <p id="login_date">영업일자 :<span>날짜</span></p>
         </div>
@@ -46,15 +46,15 @@
          }
          
    </script>
-	<form method="GET" action="#" id="alterFrm" name="alterFrm">
+	<form method="POST" action="member_alterIntoUpdate" id="member_alterFrm" name="member_alterFrm">
 		<h2 class="title">회원정보수정</h2>
 		<p class="inputBox">		
 			<label for="userName" class="labelTitle">이름</label>
-			<input type="text" id="userName" name="userName" class="infoInput" placeholder="이름을 입력하세요"><br>
+			<input type="text" id="userName" name="userName" class="infoInput" value="${memberSelect.user_name}"><br>
 		</p>
 		<p class="inputBox">
 			<label for="userPhone" class="labelTitle">휴대전화</label>
-			<input type="tel" id="userPhone" name="userPhone" class="infoInput" placeholder="전화번호를 입력하세요"><br>
+			<input type="tel" id="userPhone" name="userPhone" class="infoInput" value="${memberSelect.user_phone}"><br>
 		</p>
 		<p class="inputBox">
 			<label class="labelTitle">성별</label>
@@ -63,7 +63,7 @@
 		</p>
 		<div id="clear"></div>
 		<button class="resetBtn btn"  name="resetBtn">다시입력</button>
-		<button id="memberInfoAtlerBtn" class="btn" name="memberInfoAtlerBtn">정보수정</button>
+		<button id="memberInfoAtlerBtn" class="btn" name="memberInfoAtlerBtn" onclick="alterInto();">정보수정</button>
 	</form>
 </body>
 </html>

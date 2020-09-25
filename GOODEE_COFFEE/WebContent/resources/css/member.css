@@ -14,7 +14,7 @@ div#memberList{ width: 1000px; height: 560px; margin: 0 auto; background-color: 
 1px solid #2D3e50; }
 
 div#memberList h1{ text-align: center; height: 60px; line-height: 60px; background-color: #2D3e50; color: white; box-sizing: border-box;}
-div#memberList table{ width: 100%; border-collapse: collapse; border:1px solid #2D3e50; margin-top: 60px;}
+div#memberList table{ width: 95%; border-collapse: collapse; border:1px solid #2D3e50; margin: 60px auto 0 auto; }
 
 div#memberList table tr{ height: 40px;}
 
@@ -42,12 +42,5 @@ div#clear{clear:both; }
 /*■■■■■■■■■■■■■■■■■■■■■■■■■ withdraw ■■■■■■■■■■■■■■■■■■■■■■■■■*/
 form#withdrawFrm{ width:600px; height:600px; margin:0 auto; box-sizing:border-box; padding:30px;  border:1px dashed #2D3E50; background-color:#F1C40F; position:relative; top:160px;}
 button#memberWithdrawBtn{ background-color:#2D3E50; color:white; }
-
-
-
-
-
-
-
 
 

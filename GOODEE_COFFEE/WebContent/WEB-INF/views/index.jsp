@@ -49,8 +49,8 @@
     <!--form-->
     <form method="post" id="loginFrm" name="loginFrm">
         <h2 id="pcLogin">로그인</h2>
-        <input type="text" id="userId" name="userId" placeholder="아이디를 입력해주세요">
-        <input type="password" id="userPwd" name="userPwd" placeholder="패스워드를 입력해주세요">
+        <input type="text" id="userId" name="w_id" placeholder="아이디를 입력해주세요">
+        <input type="password" id="userPwd" name="w_pwd" placeholder="패스워드를 입력해주세요">
         <!-- 
         <input type="checkbox" id="userIdSave" name="userIdSave">
         

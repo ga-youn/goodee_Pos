@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.goodeecoffee.gc.admin.dto.AdminDTO;
@@ -20,11 +21,17 @@ import com.goodeecoffee.gc.staff.service.StaffService;
  */
 @Controller
 public class IndexController {
-	//로그인 처리
-	@RequestMapping(value = "/")
+	
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	public String admin(Locale locale, Model model) {
+		//test
+		return "index._admin";
+	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String login(Locale locale, Model model) {
 		
-		return "login";
+		return "index";
 	}
 	
 	//관리자 로그인
@@ -71,21 +78,21 @@ public class IndexController {
 	//staff-context.xml에 지정된 경로 똑같이 평가되서 이름만 바꾸면 될듯 지금은 시험삼아 staffs 사용.	
     //staff 로그인
 	@Inject
-	StaffService memberService;
+	StaffService staffService;
 	
 	//view에서 /staffs 를 맵핑하면 이 메소드가 호출된다. 
     @RequestMapping("/staffs")
     public ModelAndView staff_login_check(
         //이 메소드는 dto, session, mav를 매개값으로 받고, session안에 setAttribute 메소드를 사용해서 값들을 저장한다.
-        StaffDTO memberDTO, HttpSession session, ModelAndView mav) {
+    	StaffDTO staffDTO, HttpSession session, ModelAndView mav) {
         
     	//ModelAndView는 데이터를 출력할 페이지와 전송을 동시에 함
-        String name = memberService.staffLoginCheck(memberDTO);
+        String name = staffService.staffLoginCheck(staffDTO);
         if(name != null) { //로그인 성공 (staffLoginCheck()메소드 안에 이름이 저장)
             
             //dto에서 Userid()를 받아와 staff_userid라는 이름으로 session에 setAttribute()메소드를 사용해서 저장하고
             //name도 마찬가지로 session에 저장한다.
-            session.setAttribute("staff_userid", memberDTO.getUserId());
+            session.setAttribute("staff_userid", staffDTO.getW_id());
             session.setAttribute("staff_name", name);
             
             mav.setViewName("/index._staff");    //index._staff 페이지를 보여줌
@@ -109,5 +116,4 @@ public class IndexController {
         return "redirect:/";
         //데이터를 삭제시킨후에는 login페이지로 돌아가도록 한다.
     }
-	
 }

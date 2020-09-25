@@ -8,25 +8,44 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.goodeecoffee.gc.member.dao.IMemberDAO;
+import com.goodeecoffee.gc.member.dto.MemberDTO;
+
 
 @Service("memberService")
 public class MemberService implements IMemberService{
+	
 	
 	@Resource(name="memberDAO")
 	private IMemberDAO memberDAO;
 
 	@Override
-	public List<Map<String, Object>> member(Map<String, Object> map) {
+	public void memberInsert(MemberDTO member) {
 		// TODO Auto-generated method stub
-		return memberDAO.member(map);
+		memberDAO.memberInsert(member);
 	}
 
 	@Override
-	public List<Map<String, Object>> memberDESC(Map<String, Object> map) {
+	public void memberWithdraw(MemberDTO member) {
 		// TODO Auto-generated method stub
-		return memberDAO.memberDESC(map);
+		memberDAO.memberWithdraw(member);
 	}
 
-	
+	@Override
+	public List<Map<String, Object>> memberList(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return memberDAO.memberList(map);
+	}
+
+	@Override
+	public MemberDTO memberSelect(int mID) {
+		// TODO Auto-generated method stub
+		return memberDAO.memberSelect(mID);
+	}
+
+	@Override
+	public void memberUpdate(MemberDTO member) {
+		// TODO Auto-generated method stub
+		memberDAO.memberUpdate(member);
+	}
 
 }
