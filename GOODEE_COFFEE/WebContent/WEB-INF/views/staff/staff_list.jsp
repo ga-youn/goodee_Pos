@@ -7,7 +7,6 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="김세인">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>직원-리스트</title>
     <script src="https://kit.fontawesome.com/cccee664d4.js" crossorigin="anonymous"></script>

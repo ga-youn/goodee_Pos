@@ -147,7 +147,7 @@
 		                        <td><fmt:formatDate type="date" value="${paymentList.order_date}" pattern="yyyy-MM-dd"/></td>
 		                        <td><fmt:formatDate type="time" value="${paymentList.order_date}" pattern="HH:mm:ss"/></td>
 		                        <td>-</td>
-		                        <td>${paymentList.total_price}</td>
+		                        <td><fmt:formatNumber pattern="###,###,###" value="${paymentList.total_price}"/></td>
 		                        <td>${paymentList.card}</td>
 		                        <td>${paymentList.cash}</td>
 		                        <td>${paymentList.order_state}</td>

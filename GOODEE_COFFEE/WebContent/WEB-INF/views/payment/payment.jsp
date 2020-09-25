@@ -163,7 +163,7 @@
 		                </div>
 		                <hr>
 		                <div class="calc_money">
-		                    <p>결제가격 :<input type="text" name="total_price" style="height:30px; width:80px;" value="0">원</p>
+		                    <p>결제가격 :<input type="text" name="total_price" style="height:30px; width:80px; text-align:right;" value="0">원</p>
 		                </div>
 		            </div>
 		            <div class="member_search">

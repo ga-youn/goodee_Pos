@@ -40,7 +40,7 @@ button#memberInfoAtlerBtn{ background-color:#2D3E50; color:white; }
 div#clear{clear:both; }
 
 /*■■■■■■■■■■■■■■■■■■■■■■■■■ withdraw ■■■■■■■■■■■■■■■■■■■■■■■■■*/
-form#withdrawFrm{ width:600px; height:600px; margin:0 auto; box-sizing:border-box; padding:30px;  border:1px dashed #2D3E50; background-color:#F1C40F; position:relative; top:160px;}
+form#member_withdrawFrm{ width:600px; height:600px; margin:0 auto; box-sizing:border-box; padding:30px;  border:1px dashed #2D3E50; background-color:#F1C40F; position:relative; top:160px;}
 button#memberWithdrawBtn{ background-color:#2D3E50; color:white; }
 
 

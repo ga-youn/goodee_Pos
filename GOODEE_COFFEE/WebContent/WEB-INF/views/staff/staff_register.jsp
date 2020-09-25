@@ -31,6 +31,22 @@
         </div>
 	</header>
     <%@ include file="../gnb_admin.jsp"%>
+    <%@ include file="../gnb_staff.jsp"%>
+    <script type="text/javascript">
+         $(document).ready(function() {
+            printTime();
+            setInterval(printTime, 1000);   
+         });
+         // TODO 보여주는 시간을 서버 시간으로 고칠 것(처음에 한번만 서버 시간을 가져와서 셋팅)
+         function printTime() {
+            var d = new Date();
+            var currentDate = d.getFullYear() + "년 " + ( d.getMonth() + 1 ) + "월 " + d.getDate() + "일"; 
+            var currentTime = d.getHours() + "시 " + d.getMinutes() + "분 " + d.getSeconds() + "초"; 
+            
+            $("#login_date").find("span").html(currentDate+currentTime);
+         }
+         
+    </script>
 	<form method="POST" action="staff_registerInsert" id="staffRegiFrm" name="staffRegiFrm">
 		<h2 class="title">직원등록</h2>
 		<p class="inputBox">		

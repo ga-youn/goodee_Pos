@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="윤희원,박가연">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>결제화면 POS</title>
     <script src="https://kit.fontawesome.com/cccee664d4.js" crossorigin="anonymous"></script>
@@ -21,6 +21,9 @@
     <script type="text/javascript" src="${path}/resources/js/prefixfree.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script>
+      $(function(){$(document).attr("title","GOODEE COFFEE | "+$('#title').html());});
+   	</script>
 </head>
 <body>
 	 <!-- 헤더 -->
@@ -55,22 +58,23 @@
         <h1>-고객 리스트-</h1>
         <table border="1">
             <tr>
-                <th></td>
+                <th></th>
                 <th>순번</th>
                 <th>고객번호</th>
                 <th>이름</th>
                 <th>휴대번호</th>
                 <th>결제금액</th>
             </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td>GC-01</td>
-                <td>홍길동</td>
-                <td>010-1234-5678</td>
-                <td>3,500</td>
-            </tr>
-           
+            <c:forEach items="${memberList}" var="memberList">
+	            <tr>
+	             	<td><input type="checkbox"></td>
+	                <td><a href="/gc/member/member_alterInto?m_id=${memberList.m_id}">${memberList.m_id}</a></td>
+	                <td>${memberList.m_name}</td>
+	                <td>${memberList.m_phone}</td>
+	                <td><fmt:formatDate value="${memberList.indate}" pattern="yyyy-MM-dd"/></td>
+	                <td>${memberList.use}</td>
+	            </tr>
+             </c:forEach>
         </table>
         <p id="page">
             <span>&lt; &nbsp;</span>
@@ -82,9 +86,9 @@
             <span>&nbsp; &gt;</span>
         </p>
         <div id="ListbtnBox">
-            <a href="${pageContext.request.contextPath}/member/member_withdraw"><button id="movetoWithdraw">삭제</button></a>
+            <a href="member_withdraw"><button id="movetoWithdraw">삭제</button></a>
             <a href="${pageContext.request.contextPath}/member/member_alterInfo"><button id="movetoAlter">수정</button></a>
-            <a href="${pageContext.request.contextPath}/member/member_rigister"><button id="movetoRegi">등록</button></a>
+            <a href="member_rigister"><button id="movetoRegi">등록</button></a>
         </div>
     </div>
 </body>
