@@ -22,13 +22,8 @@ import com.goodeecoffee.gc.staff.service.StaffService;
 @Controller
 public class IndexController {
 	
-	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-	public String admin(Locale locale, Model model) {
-		//test
-		return "index._admin";
-	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/")
 	public String login(Locale locale, Model model) {
 		
 		return "index";
@@ -50,20 +45,20 @@ public class IndexController {
             
             //dto에서 Userid()를 받아와 admin_userid라는 이름으로 session에 setAttribute()메소드를 사용해서 저장하고
             //admin_name도 마찬가지로 session에 저장
-            session.setAttribute("admin_userid", adminDTO.getUserId());
+            session.setAttribute("admin_userid", adminDTO.getA_id());
             session.setAttribute("admin_name", name);
             
             mav.setViewName("/index._admin");      //index._admin 페이지를 보여줌
             mav.addObject("message", "success"); //mav안에 있는 addObject()메소드를 사용해 message라는 키에 sucess라는 value를 담아 보낸다
         }else {
             	
-            mav.setViewName("login");    //관리자 로그인이 실패했을때 보여주는 페이지
+            mav.setViewName("index");    //관리자 로그인이 실패했을때 보여주는 페이지
             mav.addObject("message", "error");   //error메시지를 출력
         }
         return mav; 
     }
         
-    //관리자 로그아웃 처리 (아직 미구현)
+    //관리자 로그아웃 처리 
     //View에 있는 logout.do를 맵핑
     @RequestMapping("/admin/logout.do")
     public String logout(HttpSession session) {
@@ -74,7 +69,6 @@ public class IndexController {
         return "redirect:/";
         //데이터를 삭제시킨후에는 login페이지로 돌아가도록 한다.
     }
-	
 	//staff-context.xml에 지정된 경로 똑같이 평가되서 이름만 바꾸면 될듯 지금은 시험삼아 staffs 사용.	
     //staff 로그인
 	@Inject
@@ -99,13 +93,13 @@ public class IndexController {
             mav.addObject("message", "success"); //mav안에 있는 addObject()메소드를 사용해 message라는 키에 sucess라는 value를 담아 보낸다
         }else {
             	
-            mav.setViewName("login");    		//staff 로그인이 실패했을때 보여주는 페이지
+            mav.setViewName("index");    		//staff 로그인이 실패했을때 보여주는 페이지
             mav.addObject("message", "error");  //error메시지를 출력한다.
         }
         return mav; 
     }
         
-    //staff 로그아웃 처리(아직 미구현)
+    //staff 로그아웃 처리
     //View에 있는 logout.do를 맵핑
     @RequestMapping("/staff/logout.do")
     public String staff_logout(HttpSession session) {

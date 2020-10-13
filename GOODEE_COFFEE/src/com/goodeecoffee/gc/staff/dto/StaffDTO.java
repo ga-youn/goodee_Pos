@@ -11,6 +11,16 @@ public class StaffDTO {
 	private DATE indate;
     private String use;    
     
+    public StaffDTO() {}
+	
+	public StaffDTO(int userId, String userPwd, String name) {
+		super();
+		this.w_id = userId;
+		this.w_pwd = userPwd;
+		this.w_name = name;
+	}
+
+    
     public String getW_phone() {
 		return w_phone;
 	}

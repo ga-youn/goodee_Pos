@@ -26,17 +26,16 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 <body>
-	 <!-- 헤더 -->
-	<header>
-        <div id="header_wrapper">
-            <div id="logo_image"><!-- <img src="#"> --></div>
-            <h1 id="title">매출조회</h1>
-            <button id="logout" value="로그아웃">로그아웃</button>
-            <p id="login_name"><span>이름</span> 님</p>
-            <p id="login_date">영업일자 :<span>날짜</span></p>
-            
-        </div>
+	<!-- header -->
+   <header>
+	    <div id="header_wrapper">
+	        <!-- <div id="logo_image"><img src="#"></div> -->
+	        <h1 id="title">GOODEE CAFE</h1>
+	        <p id="login_date">영업일자 : <span>날짜</span></p>
+	        <p id="login_name">${sessionScope.staff_name} 님</p>
+	    </div>
     </header>
+    <!-- //header -->
     <%@ include file="../gnb_staff.jsp" %>
 	<script type="text/javascript">
 			$(document).ready(function() {

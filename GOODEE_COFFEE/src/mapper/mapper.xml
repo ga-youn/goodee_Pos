@@ -3,44 +3,22 @@
 
 <mapper namespace="mapper">
 	
-	<!-- test -->
-	<resultMap type="map" id="mapList">
-		<result column="id" property="id"/>
-		<result column="pwd" property="pwd"/>
-		<result column="name" property="name"/>
-		<result column="email" property="email"/>
-		<result column="phone" property="phone"/>
-	</resultMap>
+	<!-- login : 로그인-->
+	<!-- 로그인 테스트 -->
+	 <select id="adminLoginCheck" resultType="String">
+	 	select a_name
+	 	from admin
+	 	where a_id = '${a_id}' and a_pwd = '${a_pwd}'
+    </select>
+    
+    <select id="staffLoginCheck" resultType="String">
+	 	select w_name
+	 	from worker
+	 	where w_id = '${w_id}' and w_pwd = '${w_id}'
+    </select>
+	<!-- //로그인 테스트 -->
+	<!-- //login : 로그인 -->
 	
-	<select id="list" parameterType="map" resultMap="mapList">
-		select
-			id
-			,pwd
-			,name
-			,email
-			,phone
-		from member
-	</select>
-	
-	<resultMap type="map" id="mapListDESC">
-		<result column="id" property="id"/>
-		<result column="pwd" property="pwd"/>
-		<result column="name" property="name"/>
-		<result column="email" property="email"/>
-		<result column="phone" property="phone"/>
-	</resultMap>
-	
-	<select id="listDESC" parameterType="map" resultMap="mapListDESC">
-		select
-			id
-			,pwd
-			,name
-			,email
-			,phone
-		from member
-		order by id ASC
-	</select>
-	<!-- //test -->
 	
 	
 	<!-- payment : 메뉴불러오기 -->
@@ -148,21 +126,6 @@
 	<!-- //payment : 메뉴불러오기-->
 	
 	
-	<!-- login : 로그인-->
-	<!-- 로그인 테스트 -->
-	 <select id="adminLoginCheck" resultType="String">
-	 	select a_name
-	 	from admin
-	 	where a_id = '${userId}' and a_pwd = '${userPwd}'
-    </select>
-    
-    <select id="staffLoginCheck" resultType="String">
-	 	select w_name
-	 	from worker
-	 	where w_id = '${w_id}' and w_pwd = '${w_pwd}'
-    </select>
-	<!-- //로그인 테스트 -->
-	<!-- //login : 로그인 -->
 	
 	
 	<!-- menu : 메뉴관리 -->
